@@ -10,7 +10,7 @@ const RepositoryActions = () => {
 
   const callRepoAction = async (action, data = {}) => {
     try {
-      const res = await fetch(`http://localhost:3000/repo/${action}/${id}`, {
+      const res = await fetch(`https://code-hub-backend-production.up.railway.app/repo/${action}/${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: Object.keys(data).length ? JSON.stringify(data) : null,

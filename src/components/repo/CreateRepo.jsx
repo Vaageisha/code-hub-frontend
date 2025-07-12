@@ -17,7 +17,7 @@ const CreateRepository = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/repo/create", {
+      const response = await fetch("https://code-hub-backend-production.up.railway.app/repo/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -16,7 +16,7 @@ const MyRepositories = () => {
 
     const fetchRepositories = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/repo/user/${userId}`);
+        const res = await fetch(`https://code-hub-backend-production.up.railway.app/repo/user/${userId}`);
         const data = await res.json();
         setRepositories(data.repositories || []);
       } catch (err) {

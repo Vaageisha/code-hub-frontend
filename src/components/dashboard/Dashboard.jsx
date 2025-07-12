@@ -21,7 +21,7 @@ const Dashboard = () => {
 
     const fetchRepositories = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/repo/user/${userId}`);
+        const res = await fetch(`https://code-hub-backend-production.up.railway.app/repo/user/${userId}`);
         const data = await res.json();
         setRepositories(data.repositories || []);
         setSearchResults(data.repositories || []);
@@ -32,7 +32,7 @@ const Dashboard = () => {
 
     const fetchSuggestedRepositories = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/repo/all`);
+        const res = await fetch(`https://code-hub-backend-production.up.railway.app/repo/all`);
         const data = await res.json();
         setSuggestedRepositories(data || []);
       } catch (err) {
@@ -50,7 +50,7 @@ const Dashboard = () => {
         setSearchResults(repositories);
       } else {
         try {
-          const res = await fetch(`http://localhost:3000/repo/name/${searchQuery}`);
+          const res = await fetch(`https://code-hub-backend-production.up.railway.app/repo/name/${searchQuery}`);
           const data = await res.json();
           setSearchResults(data || []);
         } catch (err) {

@@ -13,7 +13,7 @@ const RepositoryDetails = () => {
   useEffect(() => {
     const fetchRepo = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/repo/${id}`);
+        const res = await fetch(`https://code-hub-backend-production.up.railway.app/repo/${id}`);
         const data = await res.json();
         setRepo(data);
         setName(data.name);
@@ -27,7 +27,7 @@ const RepositoryDetails = () => {
 
   const handleUpdate = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/repo/update/${id}`, {
+      const response = await fetch(`https://code-hub-backend-production.up.railway.app/repo/update/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, description }),
@@ -43,7 +43,7 @@ const RepositoryDetails = () => {
   const handleDelete = async () => {
     if (!window.confirm("Are you sure you want to delete this repository?")) return;
     try {
-      await fetch(`http://localhost:3000/repo/delete/${id}`, {
+      await fetch(`https://code-hub-backend-production.up.railway.app/repo/delete/${id}`, {
         method: "DELETE",
       });
       navigate("/");
@@ -54,7 +54,7 @@ const RepositoryDetails = () => {
 
   const handleToggleVisibility = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/repo/toggle/${id}`, {
+      const res = await fetch(`https://code-hub-backend-production.up.railway.app/repo/toggle/${id}`, {
         method: "PATCH",
       });
       const updatedRepo = await res.json();

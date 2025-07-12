@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:3000/repo"; // Update with your backend base URL
+const API_BASE_URL = "https://code-hub-backend-production.up.railway.app/repo"; // Update with your backend base URL
 
 // Helper function for POST requests with JSON body
 async function postRequest(endpoint, body) {
