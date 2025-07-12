@@ -1,0 +1,73 @@
+.repo-details-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.repo-details-container h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 8px;
+}
+
+.repo-details-container h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.repo-details-container p {
+  margin: 6px 0;
+  color: #ccc;
+}
+
+.repo-details-container textarea,
+.repo-details-container input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background-color: #2a2a2a;
+  color: #fff;
+  resize: none;
+}
+
+.repo-details-container button {
+  margin-right: 10px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #3b82f6;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.repo-details-container button:hover {
+  background-color: #2563eb;
+}
+
+.repo-details-container button.delete {
+  background-color: #ef4444;
+}
+
+.repo-details-container button.delete:hover {
+  background-color: #dc2626;
+}
+
+.repo-details-container button.back {
+  margin-top: 20px;
+  background-color: #4b5563;
+}
+
+.repo-details-container button.back:hover {
+  background-color: #374151;
+}

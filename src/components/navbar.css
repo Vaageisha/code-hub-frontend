@@ -1,0 +1,72 @@
+/* Navbar wrapper */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #24292e;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* GitHub logo and title */
+nav img {
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+
+nav div {
+  display: flex;
+  align-items: center;
+}
+
+/* Left side GitHub brand */
+nav h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Right side nav links */
+nav p {
+  margin: 0 1rem;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease, text-decoration 0.2s ease;
+}
+
+/* Hover effects */
+nav h3:hover,
+nav p:hover {
+  color: #58a6ff;
+  text-decoration: underline;
+}
+
+/* Remove default link styles */
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Responsive (mobile) layout */
+@media screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  nav div:last-child {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav p {
+    margin: 0.25rem 0;
+  }
+}
