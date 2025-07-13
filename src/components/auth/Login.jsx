@@ -25,10 +25,10 @@ const Login = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post(
-        "https://code-hub-backend-production.up.railway.app/login",
-        { email, password }
-      );
+      const res = await axios.post("https://code-hub-backend-production.up.railway.app/login", {
+        email,
+        password,
+      });
 
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userId", res.data.userId);
@@ -44,56 +44,42 @@ const Login = () => {
   };
 
   return (
-    <div className="login-wrapper">
+    <div className="login-page">
       <div className="login-container">
-        <img className="logo-login" src={logo} alt="Logo" />
+        <img src={logo} alt="GitHub Logo" className="login-logo" />
+        <h1 className="login-title">Sign in to CodeHub</h1>
+        <form className="login-form" onSubmit={handleLogin}>
+          <div className="form-group">
+            <label htmlFor="email">Email address</label>
+            <input
+              id="email"
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
 
-        <div className="login-box">
-          <h1 className="login-heading">Sign In</h1>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
 
-          <form onSubmit={handleLogin} className="login-form">
-            <div>
-              <label className="label">Email address</label>
-              <input
-                autoComplete="off"
-                name="Email"
-                id="Email"
-                className="input"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
+          <Button type="submit" variant="primary" disabled={loading}>
+            {loading ? "Signing in..." : "Sign In"}
+          </Button>
+        </form>
 
-            <div>
-              <label className="label">Password</label>
-              <input
-                autoComplete="off"
-                name="Password"
-                id="Password"
-                className="input"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
+       <div className="login-footer">
+  New to CodeHub? <Link to="/signup">Create an account</Link>
+</div>
 
-            <Button
-              variant="primary"
-              className="login-btn"
-              disabled={loading}
-              type="submit"
-            >
-              {loading ? "Signing in..." : "Sign In"}
-            </Button>
-          </form>
-        </div>
-
-        <p className="login-redirect">
-          New to CodeHub? <Link to="/signup">Create an account</Link>
-        </p>
       </div>
     </div>
   );
