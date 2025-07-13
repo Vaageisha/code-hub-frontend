@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../../authContext";
-
-import { PageHeader, Box, Button } from "@primer/react";
+import { Button } from "@primer/react";
 import { Link } from "react-router-dom";
 
 import logo from "../../assets/github-mark-white.svg";
@@ -26,10 +25,10 @@ const Login = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post("https://code-hub-backend-production.up.railway.app/login", {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        "https://code-hub-backend-production.up.railway.app/login",
+        { email, password }
+      );
 
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userId", res.data.userId);
@@ -46,59 +45,54 @@ const Login = () => {
 
   return (
     <div className="login-wrapper">
-      <div className="login-logo-container">
+      <div className="login-container">
         <img className="logo-login" src={logo} alt="Logo" />
-      </div>
-
-      <div className="login-box-wrapper">
-        <div className="login-heading">
-         <div style={{ textAlign: "center", marginBottom: "20px" }}>
-  <h1 style={{ color: "#ffffff", fontSize: "2rem" }}>Sign In</h1>
-</div>
-
-        </div>
 
         <div className="login-box">
-          <div>
-            <label className="label">Email address</label>
-            <input
-              autoComplete="off"
-              name="Email"
-              id="Email"
-              className="input"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
+          <h1 className="login-heading">Sign In</h1>
 
-          <div>
-            <label className="label">Password</label>
-            <input
-              autoComplete="off"
-              name="Password"
-              id="Password"
-              className="input"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
+          <form onSubmit={handleLogin} className="login-form">
+            <div>
+              <label className="label">Email address</label>
+              <input
+                autoComplete="off"
+                name="Email"
+                id="Email"
+                className="input"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
 
-          <Button
-            variant="primary"
-            className="login-btn"
-            disabled={loading}
-            onClick={handleLogin}
-          >
-            {loading ? "Signing in..." : "Sign In"}
-          </Button>
+            <div>
+              <label className="label">Password</label>
+              <input
+                autoComplete="off"
+                name="Password"
+                id="Password"
+                className="input"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+
+            <Button
+              variant="primary"
+              className="login-btn"
+              disabled={loading}
+              type="submit"
+            >
+              {loading ? "Signing in..." : "Sign In"}
+            </Button>
+          </form>
         </div>
 
         <p className="login-redirect">
-          New to GitHub? <Link to="/signup">Create an account</Link>
+          New to CodeHub? <Link to="/signup">Create an account</Link>
         </p>
       </div>
     </div>
